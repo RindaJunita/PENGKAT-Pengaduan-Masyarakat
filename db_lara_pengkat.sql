@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 22, 2021 at 01:14 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Waktu pembuatan: 08 Nov 2021 pada 08.56
+-- Versi server: 10.4.20-MariaDB
+-- Versi PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lara_pengkat`
+-- Database: `db_lara_pengkat`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Struktur dari tabel `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -41,7 +40,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Struktur dari tabel `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -51,7 +50,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Dumping data untuk tabel `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -69,7 +68,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Struktur dari tabel `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -81,7 +80,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengaduans`
+-- Struktur dari tabel `pengaduans`
 --
 
 CREATE TABLE `pengaduans` (
@@ -97,10 +96,17 @@ CREATE TABLE `pengaduans` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `pengaduans`
+--
+
+INSERT INTO `pengaduans` (`id`, `user_nik`, `name`, `user_id`, `description`, `image`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
+(1, '2343242', 'Masyarakat', 2, 'Jalan Rusak', 'assets/laporan/lvmmEtSXNNjyp3LsQ34Rgrlof7vISd68rjluYTDd.png', 'Selesai', NULL, '2021-11-08 22:48:00', '2021-11-08 22:48:00');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tanggapans`
+-- Struktur dari tabel `tanggapans`
 --
 
 CREATE TABLE `tanggapans` (
@@ -112,10 +118,18 @@ CREATE TABLE `tanggapans` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data untuk tabel `tanggapans`
+--
+
+INSERT INTO `tanggapans` (`id`, `pengaduan_id`, `tanggapan`, `petugas_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Okey', 3, '2021-11-08 22:49:51', '2021-11-08 22:49:51'),
+(2, 1, 'Selesai', 3, '2021-11-08 22:50:33', '2021-11-08 22:50:33');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -133,51 +147,51 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `nik`, `name`, `email`, `phone`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `roles`) VALUES
-(1, '12345', 'Admin', 'admin@gmail.com', '082117569494', NULL, '$2y$10$/ltyOo2YATarv7PZFoEtLOZt6vmOvLBzoh2zt49UchBe3e8iVT35S', NULL, '2021-01-07 01:00:38', '2021-01-07 01:00:38', 'ADMIN'),
-(2, '2343242', 'Masyarakat', 'user@gmail.com', '02319051669', NULL, '$2y$10$oFuoND5UwK6XaWrHPR1AJOcdyo1/YIHy1p3gUPnTj.aNr4Jht/geu', NULL, '2021-01-07 04:40:35', '2021-01-07 04:40:35', 'USER'),
-(3, '12345678912', 'Petugas', 'petugas@gmail.com', '082117569492', NULL, '$2y$10$RKR8I6lVC8f0h3qf63z48OkMQR3r0SxmGaAI9JIEgs34eJFS3yS92', NULL, '2021-01-12 15:16:18', '2021-01-12 15:16:18', 'PETUGAS');
+(1, '12345', 'Admin', 'admin@gmail.com', '082117569494', NULL, '$2b$10$U6yrxO8tyHA38LgGojXQBu0hTCqWCAMr6uV1PU5qiz9nAP3OoqRNS', NULL, '2021-01-07 01:00:38', '2021-01-07 01:00:38', 'ADMIN'),
+(2, '2343242', 'Masyarakat', 'user@gmail.com', '02319051669', NULL, '$2b$10$U6yrxO8tyHA38LgGojXQBu0hTCqWCAMr6uV1PU5qiz9nAP3OoqRNS', NULL, '2021-01-07 04:40:35', '2021-01-07 04:40:35', 'USER'),
+(3, '12345678912', 'Petugas', 'petugas@gmail.com', '082117569492', NULL, '$2b$10$U6yrxO8tyHA38LgGojXQBu0hTCqWCAMr6uV1PU5qiz9nAP3OoqRNS', NULL, '2021-01-12 15:16:18', '2021-01-12 15:16:18', 'PETUGAS');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `failed_jobs`
+-- Indeks untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `migrations`
+-- Indeks untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
+-- Indeks untuk tabel `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `pengaduans`
+-- Indeks untuk tabel `pengaduans`
 --
 ALTER TABLE `pengaduans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tanggapans`
+-- Indeks untuk tabel `tanggapans`
 --
 ALTER TABLE `tanggapans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -185,35 +199,35 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- AUTO_INCREMENT untuk tabel `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `pengaduans`
+-- AUTO_INCREMENT untuk tabel `pengaduans`
 --
 ALTER TABLE `pengaduans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tanggapans`
+-- AUTO_INCREMENT untuk tabel `tanggapans`
 --
 ALTER TABLE `tanggapans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
